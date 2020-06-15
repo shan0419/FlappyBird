@@ -8,7 +8,7 @@ var bird = {
   score: 0, // 游戏得分
   minTop: 0, // 地平线 高度
   maxTop: 570, // 天空高度
-  pipeLength: 6,
+  pipeLength: 7,
   pipeArr: [],
   init: function () {
     this.initData();
@@ -102,7 +102,7 @@ var bird = {
     var pipeX = this.pipeArr[this.score % this.pipeLength].up.offsetLeft;
     if(pipeX < 13) { // 13？ 柱子正好越过小鸟的距离 => 见图示二
       this.oScore.innerText = ++ this.score; // 分数加一
-      this.lastPipeIndex = (this.score + 5 -1) % 6; // 更改视图中最后一根柱子的索引值
+      this.lastPipeIndex = (this.score + this.pipeLength - 1 - 1 ) % this.pipeLength; // 更改视图中最后一根柱子的索引值
     }
   },
   /**
